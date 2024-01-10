@@ -1,0 +1,9 @@
+<div class="container px-5">
+  <%= form_with url:root_path, class: "d-flex align-items-center justify-content-center mb-5 flex-column" do |form| %>
+    <div class="form-group w-50">
+      <%= form.label :message, 'Enter Review' %>
+      <%= form.text_area :message, class: "form-control mt-1", rows: 5 %>
+    </div>
+    <%= form.submit "Analyze!", class: "btn btn-primary mt-3" %>
+  <% end %>
+</div>
