@@ -1,4 +1,24 @@
 <div class="container px-5">
-  <h1 class="mt-5"> Analysis Result </h1>
-  <p><%= message %></p>
+  <h1 class="mt-5">Analysis Result for</h1>
+
+  <h5 class="mt-3 mb-3"> <%= message %> </h5>
+
+  <% result.each do |single_result| %>
+    <h4><%= single_result['label'].capitalize %> Sentiment</h4>
+    <% score_percentage = number_with_precision(single_result['score'] * 100, precision: 2) %>
+    <div class="progress" style="height: 30px;">
+      <% case single_result['label'] %>
+        <% when 'positive' %>
+          <div class="progress-bar bg-success" role="progressbar" style="width: <%= score_percentage %>%; height: 100%;" aria-valuenow="<%= score_percentage %>" aria-valuemin="0" aria-valuemax="100">
+            <%= score_percentage %>%</div>
+        <% when 'negative' %>
+          <div class="progress-bar bg-danger" role="progressbar" style="width: <%= score_percentage %>%; height: 100%;" aria-valuenow="<%= score_percentage %>" aria-valuemin="0" aria-valuemax="100">
+            <%= score_percentage %>%</div>
+        <% when 'neutral' %>
+          <div class="progress-bar bg-info" role="progressbar" style="width: <%= score_percentage %>%; height: 100%;" aria-valuenow="<%= score_percentage %>" aria-valuemin="0" aria-valuemax="100">
+            <%= score_percentage %>%</div>
+      <% end %>
+    </div>
+    <br>
+  <% end %>
 </div>
