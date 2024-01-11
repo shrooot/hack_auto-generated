@@ -1,12 +1,12 @@
 <div class="d-flex align-items-center justify-content-center mb-5">
-  <h1 class="mt-5"> Welcome to our sentiment analyzer </h1>
+  <h1 class="mt-5 mb-5" style="color: rgba(0,0,0,0.8); font-size: 4.6rem"> Sentiment Analyzer </h1>
 </div>
 
 <div class="container px-5">
   <%= form_with url:root_path, class: "d-flex align-items-center justify-content-center mb-5 flex-column" do |form| %>
     <div class="form-group w-50">
-      <%= form.label :message, 'Enter Review' %>
-      <%= form.text_area :message, class: "form-control mt-1", rows: 5 %>
+      <h4><%= form.label :message, 'Enter Review' %></h4>
+      <%= form.text_area :message, class: "form-control mt-1", rows: 5, style: "background-color: #A7E6FF;"  %>
     </div>
     <%= form.submit "Analyze!", class: "btn btn-primary mt-3" %>
   <% end %>
